@@ -5,6 +5,11 @@ var tablebuild = {
         for (var i = 0; i < tablebuild.items.length; i++ ){
             $('#table-body').append(tablebuild.assamble(tablebuild.items[i]))
         }
+        $('.show').on('click',function(){
+            var id = $(this).parents('.row')
+            .find('.description').fadeIn();
+        
+        })
     },
 
     filtromarca: function(brand){
@@ -17,14 +22,18 @@ var tablebuild = {
     },
 
     assamble: function(items){
-            return  '<div class="row">'
+            return  '<div class="row" '
+            + 'data-id="'+items.id+'">'
             + '<span class="col-2">' +'</span>'
            + '<span class="col-2">'+ items.brand +'</span>'
            + '<span class="col-2">'+ items.location +'</span>'
            + '<span class="col-2">'+ items.lunch +'</span>'
            + '<span class="col-2">'+ items.price +'</span>'
-           + '<span class="col-2">'+'</span>'
-           + '<span class="description col-12"></span>'
+           + '<span class="col-2">'
+           + '<button type="text" class="show">show</button>'
+           + '</span>'
+           + '<span class="description col-12">'
+           + items.description+ '</span>'
         + '</div>';
     },
 
@@ -52,11 +61,6 @@ recorrer la lista-
 lo que coincida con lo buscado
 mostrar 
 */
-var filtrarMarca = {
-
-
-
-}
 
 
 
